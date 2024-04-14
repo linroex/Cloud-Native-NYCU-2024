@@ -29,7 +29,7 @@ app.get('/msgs', (req, res) => {
       return;
     }
 
-    connection.query('SELECT message from message', (err: any, rows: any, fields: any) => {
+    connection.query('SELECT message from messages', (err: any, rows: any, fields: any) => {
       res.send(rows);
     });
 
