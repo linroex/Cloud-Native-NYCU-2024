@@ -11,20 +11,3 @@ spec:
       port: 3000
       targetPort: 3000
     # Fill here
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: app
-spec:
-  rules:
-    - host: app.k8s.local
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: app
-                port:
-                  number: 3000
