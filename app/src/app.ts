@@ -7,7 +7,8 @@ const port = 3000;
 
 app.get('/', (req, res) => {
   console.log('Request received' + new Date());
-  res.send('Hello, World!');
+  const podName = env.HOSTNAME || 'unknown';
+  res.send('Hello, World! ' + podName);
 });
 
 app.get('/health', (req, res) => {
@@ -25,7 +26,7 @@ app.get('/msgs', (req, res) => {
   connection.connect((err: any) => {
     if (err) {
       console.error('Error connecting to database');
-      res.status(500).send('Internal Server Error');
+      res.status(500).send('Internal Server Error QQ');
       return;
     }
 
