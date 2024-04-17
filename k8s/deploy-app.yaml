@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: app-deploy
 spec:
-  replicas: 1
+  replicas: 4
   selector:
     matchLabels:
       app: app
@@ -17,6 +17,13 @@ spec:
           image: 
           ports:
             - containerPort: 3000
+          resources:
+            requests:
+              cpu: 10m
+              memory: 10Mi
+            limits:
+              cpu: 200m
+              memory: 200Mi
           env:
             - name:
               value: 
