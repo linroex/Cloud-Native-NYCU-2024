@@ -4,8 +4,7 @@ metadata:
   name: app-ingress
 spec:
   rules:
-    - host: app.k8s.local
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix
