@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: db
+  name: db-clusterip
 spec:
   type: ClusterIP
   selector:
