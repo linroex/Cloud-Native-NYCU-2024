@@ -5,8 +5,8 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: mariadb
+    app: 
   ports:
     - protocol: TCP
-      port: 3306
-      targetPort: 3306
+      port: 
+      targetPort: 
