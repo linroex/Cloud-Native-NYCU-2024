@@ -1,13 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: app
+  name: app-clusterip
 spec:
   type: ClusterIP
   selector:
-    # Fill here  
+    app: app
   ports:
     - protocol: TCP
       port: 3000
       targetPort: 3000
-    # Fill here

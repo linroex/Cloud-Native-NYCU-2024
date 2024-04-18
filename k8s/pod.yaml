@@ -5,15 +5,20 @@ metadata:
 spec:
   containers:
     - name: app-container
-      image: # 需填寫
+      image: ghcr.io/linroex/app:latest    # 需改成自己的 Image
       ports:
         - containerPort: 3000
       env:
         - name: DB_HOST
-          value: db.default.svc
+          value: 127.0.0.1
     - name: db
       image: mariadb
       env:
         - name: MYSQL_ROOT_PASSWORD
           value: root
-        # 需補足
+        - name: MYSQL_DATABASE
+          value: app
+        - name: MYSQL_USER
+          value: app
+        - name: MYSQL_PASSWORD
+          value: app

@@ -14,10 +14,16 @@ spec:
     spec:
       containers:
         - name: mariadb
-          image: 
+          image: docker.io/library/mariadb:latest
           env:
-            - name: 
-              value: 
+            - name: MYSQL_ROOT_PASSWORD
+              value: root
+            - name: MYSQL_DATABASE
+              value: app
+            - name: MYSQL_USER
+              value: app
+            - name: MYSQL_PASSWORD
+              value: app 
           ports:
             - containerPort: 3306
           volumeMounts:

@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: app-deploy
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: app
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: app-container
-          image: 
+          image: ghcr.io/linroex/app:latest
           ports:
             - containerPort: 3000
           resources:
@@ -25,6 +25,6 @@ spec:
               cpu: 200m
               memory: 200Mi
           env:
-            - name:
-              value: 
+            - name: DB_HOST
+              value: db-clusterip
           
