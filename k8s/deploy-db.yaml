@@ -26,7 +26,6 @@ spec:
               value: app 
           ports:
             - containerPort: 3306
-            - a: app
           volumeMounts:
             - name: mariadb-persistent-storage
               mountPath: /var/lib/mysql
