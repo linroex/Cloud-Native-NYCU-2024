@@ -1,6 +1,6 @@
 name: Actions-Example
 
-on: workflow_dispatch
+on: [workflow_dispatch, push]
 
 env:
   A: ${{ vars.A }}
