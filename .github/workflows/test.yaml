@@ -2,6 +2,12 @@ name: Actions Example
 
 on: workflow_dispatch
 
+env:
+  A: ${{ vars.A }}
+  B: ${{ vars.B }}
+  C: ${{ vars.C }}
+  D: ${{ vars.D }}
+
 jobs:
   job-A:
     runs-on: ubuntu-latest
