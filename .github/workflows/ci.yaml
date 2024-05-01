@@ -1,4 +1,4 @@
-	name: CI
+name: CI
 on: [push]
 jobs:
   k8s_yaml_validator:
