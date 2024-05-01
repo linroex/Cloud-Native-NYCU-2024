@@ -1,0 +1,18 @@
+name: 'Check Status'
+description: 'Perform status check and set job outcome'
+runs:
+  using: 'composite'
+  steps:
+    - run: |
+        if [ "${{ inputs.status }}" == "success" ]; then
+          echo "Status is success."
+          exit 0
+        else
+          echo "Status is failure."
+          exit 1
+        fi
+      shell: bash
+inputs:
+  status:
+    description: 'Status to check'
+    required: true
