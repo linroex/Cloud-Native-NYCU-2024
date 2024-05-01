@@ -3,18 +3,13 @@ name: Actions-Example
 on: [workflow_dispatch]
 
 jobs:
-  checkout-code:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
   job-A:
     runs-on: ubuntu-latest
-    needs: checkout-code
     steps: 
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Check Job A
-        uses: ./.github/workflows/check-status/action.yaml
+        uses: ./.github/workflows/check-status/
         with:
           status: ${{ vars.A }}
 
@@ -23,8 +18,10 @@ jobs:
     needs: job-A
     continue-on-error: true
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Check Job B
-        uses: ./.github/workflows/check-status
+        uses: ./.github/workflows/check-status/
         with:
           status: ${{ vars.B }}
 
@@ -32,8 +29,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: job-B
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Check Job C
-        uses: ./.github/workflows/check-status
+        uses: ./.github/workflows/check-status/
         with:
           status: ${{ vars.C }}
 
@@ -41,7 +40,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: job-B
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Check Job D
-        uses: ./.github/workflows/check-status
+        uses: ./.github/workflows/check-status/
         with:
           status: ${{ vars.D }}
