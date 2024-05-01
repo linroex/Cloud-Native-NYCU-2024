@@ -1,5 +1,7 @@
 name: Actions Example
 
+on: workflow_dispatch
+
 jobs:
   job-A:
     runs-on: ubuntu-latest
