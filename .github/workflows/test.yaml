@@ -1,4 +1,4 @@
-name: Dependent Jobs Workflow
+name: Actions Example
 
 jobs:
   job-A:
