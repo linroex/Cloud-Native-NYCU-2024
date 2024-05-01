@@ -1,13 +1,5 @@
 name: Dependent Jobs Workflow
 
-on: [push]
-
-env:
-  A: 'success'
-  B: 'success'
-  C: 'fail'
-  D: 'success'
-
 jobs:
   job-A:
     runs-on: ubuntu-latest
