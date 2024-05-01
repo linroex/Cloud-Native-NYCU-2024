@@ -3,6 +3,12 @@ name: Actions-Example
 on: [workflow_dispatch]
 
 jobs:
+  checkout-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
   job-A:
     runs-on: ubuntu-latest
     steps: 
