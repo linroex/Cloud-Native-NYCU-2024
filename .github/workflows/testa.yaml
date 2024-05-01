@@ -14,7 +14,7 @@ jobs:
     needs: checkout-code
     steps: 
       - name: Check Job A
-        uses: ./.github/workflows/check-status
+        uses: ./.github/workflows/check-status/action.yaml
         with:
           status: ${{ vars.A }}
 
