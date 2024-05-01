@@ -1,0 +1,65 @@
+name: Dependent Jobs Workflow
+
+on: [push]
+
+env:
+  A: 'success'
+  B: 'success'
+  C: 'fail'
+  D: 'success'
+
+jobs:
+  job-A:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Job A
+        run: |
+          if [ "${{ env.A }}" == "success" ]; then
+            echo "Job A succeeded."
+            exit 0
+          else
+            echo "Job A failed."
+            exit 1
+          fi
+
+  job-B:
+    runs-on: ubuntu-latest
+    needs: job-A
+    steps:
+      - name: Check Job B
+        run: |
+          if [ "${{ env.B }}" == "success" ]; then
+            echo "Job B succeeded."
+            exit 0
+          else
+            echo "Job B failed."
+            exit 1
+          fi
+
+  job-C:
+    runs-on: ubuntu-latest
+    needs: job-B
+    steps:
+      - name: Check Job C
+        run: |
+          if [ "${{ env.C }}" == "success" ]; then
+            echo "Job C succeeded."
+            exit 0
+          else
+            echo "Job C failed."
+            exit 1
+          fi
+
+  job-D:
+    runs-on: ubuntu-latest
+    needs: job-B
+    steps:
+      - name: Check Job D
+        run: |
+          if [ "${{ env.D }}" == "success" ]; then
+            echo "Job D succeeded."
+            exit 0
+          else
+            echo "Job D failed."
+            exit 1
+          fi
